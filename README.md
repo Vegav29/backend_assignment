@@ -11,12 +11,12 @@ To access the assignment follow the steps below:
 
 4.run the command npm install in the terminal to install the esstenial modules required for the project
 
-6.after installing run the command node.
+5.after installing run the command node.
 
-7.Emotorad Back-End server running on your local machine on port 3000.
+6.Emotorad Back-End server running on your local machine on port 3000.
 
-8.open your browser and type http://localhost:3000/
+7.open your browser and type http://localhost:3000/
 
-9.If everything is set up correctly, the webpage for the assignment should load in your web browser.
+8.If everything is set up correctly, the webpage for the assignment should load in your web browser.
 
 If you have any questions please reach me out,also don't forget to give a feedback,Thank you!
