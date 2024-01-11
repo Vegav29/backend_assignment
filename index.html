@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Identification Form</title>
+  
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 700px;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #responseContainer {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        
+
+        
+    </style>
+
+</head>
+<body>
+    <div class="navigation">
+    
+        <img src="ZAMAZON-logos_transparent.png" height="600" width="300" alt="logo" class="logo" style="height: 120px; width: 150px;">
+
+
+       
+          <ul>
+            <a href="#">Home</a>
+            <a href="#">BESTSELLERS</a>
+            <a href="#">PRODUCTS</a>
+            <a href="#">ZAMAZONPAY</a>
+            <a href="#">cancel order</a>
+            <a href="#">Contact us</a>
+            
+            
+          </ul>
+          <br>
+          <br>
+
+    </div>
+    
+        <div class="main">
+            <h1>Sign in</h1>
+
+            <form id="contactForm" action="http://localhost:3000/identify" method="post">
+                <label for="email">Email:</label>
+                 <input type="email" id="email" name="email" required>
+
+            <br>
+
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required>
+
+                <!-- Hidden field for fingerprint -->
+                <input type="hidden" id="fingerprint" name="fingerprint" value="">
+
+                    <br>
+
+                <button type="submit">submit</button>
+        
+        </form>
+        <div id="responseContainer"></div>
+        </div>
+    
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+    
+            const form = event.target;
+            const formData = new FormData(form);
+    
+            // Initialize the agent on page load.
+            const fpPromise = import('https://fpjscdn.net/v3/ZcItkB2jjGRyBzcTfxeg')
+                .then(FingerprintJS => FingerprintJS.load({
+                    region: "ap"
+                }));
+    
+            // Get the visitorId when you need it.
+            fpPromise
+                .then(fp => fp.get())
+                .then(result => {
+                    const visitorId = result.visitorId;
+                    formData.append('fingerprint', visitorId);
+
+                    fetch(form.action, {
+                        method: form.method,
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(Object.fromEntries(formData)),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Server Response:', data);
+
+                        // Updated response handling
+                        const responseContainer = document.getElementById('responseContainer');
+                        responseContainer.innerHTML = `
+                            <p>Status: ${data.primaryContactId ? 'Success' : 'Error'}</p>
+                            <p>Primary Contact ID: ${data.primaryContactId || 'N/A'}</p>
+                            <p>Emails: ${Array.isArray(data.emails) ? data.emails.join(', ') : 'N/A'}</p>
+                            <p>Phone Numbers: ${Array.isArray(data.phoneNumbers) ? data.phoneNumbers.join(', ') : 'N/A'}</p>
+                            <p>Secondary Contact IDs: ${Array.isArray(data.secondaryContactIds) ? data.secondaryContactIds.join(', ') : 'N/A'}</p>
+                        `;
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+        });
+    </script>
+
+</body>
+</html> 

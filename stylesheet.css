@@ -1,0 +1,172 @@
+html {
+    background-color: #fff;
+    color: black;
+    font-family: 'Rubik', sans-serif;
+    font-size: 20px;
+}
+
+* {
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+body {
+  margin: 0;
+}
+
+.navigation {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: darkblue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 100px;
+  line-height: 100px;
+  display: flex;
+  justify-content: space-between; /* Adjusted to space between logo and links */
+  align-items: left;
+}
+
+.navigation img.logo {
+  height: 70px; /* Adjusted logo height */
+  width: 70px; /* Adjusted logo width */
+  margin-left: 20px; /* Adjusted margin for logo */
+}
+
+.navigation ul {
+  display: flex;
+  margin-right: 20px; /* Adjusted margin for the right side of links */
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding: 0 20px;
+  border-bottom: 1px solid blue;
+  display: inline-block;
+}
+
+
+
+
+.navigation a:hover {
+  background-color: blue; /* Change background color on hover if desired */
+}
+
+/* Clearfix to clear floats */
+.navigation::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.navigation a:hover {
+    background-color: darkblue;
+    color: antiquewhite;
+}
+
+.main {
+  
+    position: fixed;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    height: 400px;
+    color: white;
+    font-size: 100%;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-spacing: 6.5px;
+    text-align: center; /* Center the content within the main section */
+}
+
+/* Assuming your form is within a container, center it as well */
+.form-container {
+    width: 1111%; /* Adjust width as needed */
+    margin: 0 auto; /* Automatically center the container */
+    
+}
+h1 {
+    color: black; /* Set the text color to black */
+    font-family: 'Ahood', sans-serif; /* Use the Ahood font */
+    font-size: 30px; /* Adjust font size as needed */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 15px; /* Add some space below the heading */
+    text-align: center; /* Center the heading horizontally */
+  }
+  .form-container {
+    position: fixed
+    padding: 20px;
+}
+  
+.form-container label {
+    margin-bottom: 10px;
+  }
+  
+.form-container input {
+    margin-top: 5px;
+  }
+  
+  /* You can add additional styles for other elements as needed */
+  .form-container {
+    padding: 20px; /* Adjust the padding value as needed */
+  }
+input:focus {
+    border: 2px solid #ff0000; /* Change color to red */
+    box-shadow: 0 0 5px #00ff00; /* Green glow */
+    border: 1px solid #0000ff; /* Blue border */
+  box-shadow: 0 0 3px #0000ff; /* Blue shadow */
+  }
+  #responseContainer {
+    position:fixed;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f8f8f8;
+    margin-top: 20px;
+    overflow: hidden;
+    margin: auto; /* Center the response box horizontally */
+    width: 60%;
+    
+    
+      
+  }
+
+
+#responseContainer p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: black;
+   
+   
+
+}
+
+#responseContainer p.status {
+    font-weight: bold;
+    color: #4caf50; /* Green color for success status */
+}
+
+#responseContainer p.error {
+    font-weight: bold;
+    color: #f44336; /* Red color for error status */
+}
+marquee {
+  background-color: gray;
+  color: white;
+  
+  
+}
+form {
+  /* Existing styles for the form */
+  margin-bottom: 20px; /* Add margin to push the form away from the response box */
+}
+
