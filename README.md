@@ -13,7 +13,7 @@ To access the assignment follow the steps below:
 
 5.After installing run the command  `node server.js`
 
-6.Emotorad Back-End server running on your local machine on `port 3000`.
+6.Now,the backend server will be running on your local machine on `port 3000`.
 
 7.Open your browser and type `http://localhost:3000/`
 
