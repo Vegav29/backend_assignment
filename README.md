@@ -1,4 +1,4 @@
-# backend_assignment
+# Backend_Assignment
 
 Assignmemnt for emotorad intern
 To access the assignment follow the steps below:
@@ -7,15 +7,15 @@ To access the assignment follow the steps below:
 
 2.Open the extracted files using Visual Studio code
 
-3.open a new terminal and navigate to the main directory containing all the files
+3.Open a new terminal and navigate to the main directory containing all the files
 
-4.run the command npm install in the terminal to install the esstenial modules required for the project
+4.Run the command npm install in the terminal to install the esstenial modules required for the project
 
-5.after installing run the command node.
+5.After installing run the command node.
 
 6.Emotorad Back-End server running on your local machine on port 3000.
 
-7.open your browser and type http://localhost:3000/
+7.Open your browser and type http://localhost:3000/
 
 8.If everything is set up correctly, the webpage for the assignment should load in your web browser.
 
