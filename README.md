@@ -9,7 +9,7 @@ To access the assignment follow the steps below:
 
 3.Open a new terminal and navigate to the main directory containing all the files
 
-4.Run the command `npm instal`l in the terminal to install the esstenial modules required for the project
+4.Run the command` npm install` in the terminal to install the esstenial modules required for the project
 
 5.After installing run the command  `node server.js`
 
